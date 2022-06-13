@@ -6,6 +6,8 @@ from tkinter import ttk
 from datetime import datetime
 from pathlib import Path
 import csv
+import pymssql as MSSQLCnn
+from mssql import UseDatabase
 
 '''global variable'''
 variables = dict()
@@ -132,7 +134,41 @@ def on_save():
     for data in current_data.values():
       csvwriter.writerow(data)
 
-save_button.configure(command=on_save)
+def test_db():
+  # MSSQLdb = MSSQLCnn.connect(
+  #   '127.0.0.1',
+  #   'SA',
+  #   'G00t3r003',
+  #   'time_records'
+  # )
+  # mySQLcursor = MSSQLdb.cursor()
+  
+  # SQL = 'SELECT * FROM time_records;'
+  # mySQLcursor.execute(SQL)
+  # mySQLresult = mySQLcursor.fetchone()
+  
+  # if mySQLresult is None:
+  #   print('mssql connection error')
+  # else:
+  #   print('mssql connection SUCCESS')
+  #   print(mySQLresult)
+  
+  # MSSQLdb.close()
+  # mySQLcursor.close()
+  dbconfig = {
+    'host': '127.0.0.1',
+    'user': 'SA',
+    'password': 'G00t3r003',
+    'database': 'time_records'
+  }
+  
+  with UseDatabase(dbconfig) as cursor:
+    SQL = 'SELECT * FROM time_records;'
+    cursor.execute(SQL)
+    result = cursor.fetchone()
+    print(result)
+
+save_button.configure(command=test_db)
 
 
 root.mainloop()

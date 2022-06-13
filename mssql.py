@@ -1,3 +1,4 @@
+'''Microsoft SQL'''
 import pymssql as MSSQLCnn
 
 class UseDatabase:

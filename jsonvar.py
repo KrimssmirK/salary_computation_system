@@ -1,3 +1,4 @@
+'''improved tk variables'''
 import tkinter as tk
 import json
 

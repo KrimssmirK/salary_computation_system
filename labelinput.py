@@ -1,3 +1,4 @@
+'''compound widget'''
 from tkinter import ttk
 
 class LabelInput(ttk.Frame):

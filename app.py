@@ -8,32 +8,19 @@ class Application(tk.Tk):
   
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
+    self.title('Salary Computation System')
+    self.eval('tk::PlaceWindow . center')
+    self.resizable(False, False)
     
-    '''data that holds the application'''
-    # self.jsonvar = JSONVar(self)
-    
-    
-    
-    
-    
-    
-    '''Apps'''
+    '''''''''''''''apps'''''''''''''''
     #1
     TimeInOutApp(self).grid()
-    
     #2
     
     #3
     ''''''''''''''''''''''''''''''''''''
     
-    
-    
-    
-    '''layout of the application'''
-    self.title('Salary Computation System')
-    self.eval('tk::PlaceWindow . center')
-    self.resizable(False, False)
-    ''''''''''''''''''''''''''''''''''''
+
 
 if __name__ == '__main__':
   app = Application()

@@ -14,5 +14,12 @@ Requirements
 Functional Requirements:
 
 * Time in / out
+* have inputs that:
+
+  - ignore meaningless keystrokes
+  - display an error if the value is invalid on focusout
+  - display an error if the required value is empty on focusout
+
+* prevent adding when errors are present
 * Table of Employees payment
 * Generate payment slip

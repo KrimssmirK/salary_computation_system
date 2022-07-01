@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from labelinput import LabelInput
+from staff_combobox import StaffCombobox
 
 class TimeInOutForm(ttk.Frame):
   
@@ -14,32 +15,35 @@ class TimeInOutForm(ttk.Frame):
       'Time Out': tk.StringVar()
     }
     
+    self.time_record_frame = ttk.LabelFrame(self, text='Time Record')
+    self.time_record_frame.grid(sticky=(tk.W + tk.E))
+    
     '''components'''
     LabelInput(
-      self, 
+      self.time_record_frame, 
       'Staff', 
-      input_class=ttk.Combobox, 
+      input_class=StaffCombobox, #ttk.Combobox 
       var = self._vars['Staff'],
       #temporary, this has to change from local to dynamically retrieving from the database.
       input_args =  {'values': ['Ishiah', 'Rj', 'Lhen', 'Fe']}
     ).grid()
     
     LabelInput(
-      self,
+      self.time_record_frame,
       'Time In',
       var = self._vars['Time In']
     ).grid()
     
     LabelInput(
-      self,
+      self.time_record_frame,
       'Time Out',
       var = self._vars['Time Out']
     ).grid()
     
-    buttons = tk.Frame(self)
+    buttons = tk.Frame(self.time_record_frame)
     buttons.grid(sticky=tk.W + tk.E, row=4)
     self.addbutton = ttk.Button(
-      buttons, text='Add', command=None
+      buttons, text='Add', command=self.master._on_add
     )
     self.addbutton.pack(side=tk.RIGHT)
     

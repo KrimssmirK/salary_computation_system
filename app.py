@@ -1,8 +1,13 @@
 '''the main program to be executed'''
 
 import tkinter as tk
-# from jsonvar import JSONVar
-from time_in_out_app import TimeInOutApp
+
+# custom widgets
+from time_record import TimeRecord
+from status import Status
+from edit import Edit
+from delete import Delete
+from mssql import UseDatabase
 
 class Application(tk.Tk):
   
@@ -12,15 +17,10 @@ class Application(tk.Tk):
     self.eval('tk::PlaceWindow . center')
     self.resizable(False, False)
     
-    '''''''''''''''apps'''''''''''''''
-    #1
-    TimeInOutApp(self).grid()
-    #2
-    
-    #3
-    ''''''''''''''''''''''''''''''''''''
-    
-
+    Status(self).grid(padx=100, pady=10)
+    TimeRecord(self).grid(padx=100, pady=10)
+    Edit(self).grid(padx=100, pady=10)
+    Delete(self).grid(padx=100, pady=10)
 
 if __name__ == '__main__':
   app = Application()

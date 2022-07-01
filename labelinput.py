@@ -2,16 +2,11 @@
 import tkinter as tk
 from tkinter import ttk
 
-'''custom library'''
-from time_entry import TimeEntry
-
-
-
 class LabelInput(ttk.Frame):
   """A label and input combined together"""
   
   def __init__(
-    self, parent, label, var, input_class=TimeEntry, 
+    self, parent, label, var, input_class=ttk.Entry, 
     input_args=None, label_args=None, *args, **kwargs
   ):
     super().__init__(parent, *args, **kwargs) # basic initialization of widgets
@@ -44,10 +39,10 @@ class LabelInput(ttk.Frame):
         )
     else:
       self.input = input_class(self, **input_args)
-      self.err_label = tk.Label(self, textvariable=self.input.error, fg='red')
+      # self.err_label = tk.Label(self, textvariable=self.input.error, fg='red')
       
     self.input.grid(row=1, column=0, sticky=(tk.W + tk.E))
-    self.err_label.grid()
+    # self.err_label.grid()
     self.columnconfigure(0, weight=1)
     
   def grid(self, sticky=(tk.E + tk.W), **kwargs):

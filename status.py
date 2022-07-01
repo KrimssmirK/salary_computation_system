@@ -39,8 +39,6 @@ class Status(ttk.Frame):
       cursor.execute(SQL)
       self._data = cursor.fetchall()
     
-    print(self._data)
-    
     current_row = 1
     for data in self._data:
       current_column = 0

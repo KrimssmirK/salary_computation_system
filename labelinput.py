@@ -39,10 +39,8 @@ class LabelInput(ttk.Frame):
         )
     else:
       self.input = input_class(self, **input_args)
-      # self.err_label = tk.Label(self, textvariable=self.input.error, fg='red')
       
     self.input.grid(row=1, column=0, sticky=(tk.W + tk.E))
-    # self.err_label.grid()
     self.columnconfigure(0, weight=1)
     
   def grid(self, sticky=(tk.E + tk.W), **kwargs):
